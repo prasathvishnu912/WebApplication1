@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+		.webapp-container{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			min-height:100vh;
+			font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #3498db, #ff6ec7);
+            color: white;
+		}
+        .login-container {
+            width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="email"],
+        .login-container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 3px;
+            background-color: #f2f2f2; 
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .container{
+			 width: 30%;
+			 height:200px;
+			text-align:center;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #F3F8FF;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+		}
+		.button{
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+		}
+		.button:hover{
+			background-color: #1c6fa7;
+		}
+        .login-container input[type="submit"]:hover {
+            background-color: #1c6fa7;
+        }
+        
+        .login-failed{
+			display:none;
+		}
+		.login-success{
+			display:none;
+		}
+		.throttling{
+			display:none;
+		}
+		.book-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px;
+  }
+
+.book-cover {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.book-details {
+    flex-grow: 1;
+}
+
+.book-title {
+	color:black;
+    font-size: 24px;
+    margin: 0;
+}
+
+.book-author {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #555;
+}
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+.login-failed-head {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.login-failed-para {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.imoji{
+	font-size:40px;
+}
+  </style>
+</head>
+<body>
+	<div class="webapp-container" id="app">
+	<div class="login-container" id="loginCont">
+        <h2>Login</h2>
+        <form method="POST" id="loginForm"> 
+            <input type="text" name="username" placeholder="Username"><br>
+            <input type="email" name="email" placeholder="Email"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div id="loginFailedCont" class="container login-failed">
+        <h1 class="login-failed-head">Login Failed</h1>
+        <p class="login-failed-para">User name or password is invalid</p>
+        <button id="tryAgain" class="button">Try again</button>
+    </div>
+	<div id="throttlingCont" class="container throttling">
+        <h1>Too many login attempts. </br>Try again later.</h1>	 
+        <h2 class="imoji">&#128522;</h2>   
+	</div>
+	</div>
+    
+    <script src="login.js"></script>
+</body>
+</html>
